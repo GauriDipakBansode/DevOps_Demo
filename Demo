@@ -5,5 +5,19 @@ we log in on github
 and now running commands on vs code
 first we check command 
 1) git --version
-2) 
+2) git config --global user.name "GauriDipakBansode"
+3) git config --global user.email "gauridipakbansode@gmail.com"
+4) git clone -URL-
+5) ls
+6) open folder
+7) make some changes 
+8) git add filename
+9) git commit -m "Commiting changes"
+10) git status
+11) git push origin main
+12) now make some changes on remote github
+13) commit those changes
+14) write command on vs code - git pull origin main
+
+
 i am changing the file 
