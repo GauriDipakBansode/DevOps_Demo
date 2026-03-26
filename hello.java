@@ -8,5 +8,6 @@ class hello{
         String name = sc.nextLine();
 
         System.out.println("Hello world, This is " + name);
+        System.out.println("Hello india, this is " + name);
     }
 }
