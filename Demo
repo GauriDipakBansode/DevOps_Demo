@@ -20,7 +20,7 @@ first we check command
 14) write command on vs code - git pull origin main
 15) git branch
 16) git branch feature
-17) git checkout feature
+17) git checkout feature        or          git switch branch-name
 18) git branch
 19) git status
 20) git add .
@@ -28,9 +28,101 @@ first we check command
 22) git checkout main
 23) git merge feature
 24) Delete the branch :: git branch -d feature
+If we have to add origin on local side
+25) git remote -v
+26) git remote add origin URL
+if after adding remote still there are issues while pushing changes or folders to remote repo
+then check - go to credentials manager
+- windows credentials
+- find git.com
+- check if there is the current repo which you want to use is present or not, if not then remove that
+- close credential manager
+- add, commit,  push again
+
+Raising pull request ::
+A Pull Request (PR) is when you ask to merge your changes (branch) into another branch
+27) - create branch -> git checkout -b branchname     <- create + switch 
+- switch branch -> git checkout branchname
+- add changes, commit -> git add ., git commit -m "message"
+- push from newbranch - git push origin branchname
+Go to github you will see in current repo -> compare and pull request 
+- click that
+- fill PR details like title, description
+- click on create pull request
+- Review and merge
+Always create PR from feature branch → main/develop
+Pull latest changes before starting: git pull origin main
+
+
+Tags are used to mark versions like v1.0, v2.0
+
+28) git tag v1.0
+29) git push origin v1.0
+
+Stash :::
+- You are working
+- Suddenly need to switch branch
+- But work is incomplete
+30) git stash             <- Saves changes temporarily (like a locker)
+To get it back: git stash pop
+
+
+What is .gitignore? It is a file where you tell Git:  “Don’t track these files”
+- Avoid uploading unnecessary files
+- Avoid sensitive data (passwords, API keys)
+- Keep repo clean
+Example:
+node_modules/
+.env
+*.log
+
+If file is already tracked → .gitignore won’t work
+31) git rm -r --cached node_modules
 
 
 
+Can we go back to previous commit? YES 
+Option 1: Temporary (checkout)
+32) git checkout commit_id           <- Just viewing old version (detached HEAD)
+
+Option 2: Permanent reset
+33) git reset --hard commit_id         <- Completely go back (delete changes after that commit 
+
+Go to 10th previous commit
+34) git reset --hard HEAD~10
+Meaning:
+- HEAD = current commit
+- ~10 = go 10 commits back
+
+
+
+Revert all changes, What does "revert" mean?
+Undo changes WITHOUT deleting history
+35) Command: git revert commit_id
+Creates a new commit that cancels previous one
+
+Difference 
+Command	                     What it does
+git reset	                   Deletes history
+git revert	                 Keeps history, adds undo commit
+
+
+
+Undo all local changes
+36) If not committed:  git restore .
+37) Remove staged changes: git reset
+
+
+38) Delete everything:   git reset --hard
+
+
+Branch → different path →                                git checkout -b branch
+Commit → save point →                                    git add . && git commit -m "msg"
+Stash → temporary save →                                 git stash / git stash pop
+Tag → version label →                                    git tag v1.0
+Reset → go back in time (delete future) →                git reset --hard HEAD~1
+Revert → cancel changes safely →                         git revert HEAD
+.gitignore → ignore files →                              create .gitignore & add file names
 
 
 
